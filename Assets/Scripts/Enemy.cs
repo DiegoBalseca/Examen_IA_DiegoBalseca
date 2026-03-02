@@ -1,16 +1,38 @@
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Enemy : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+
+    private enum EnemyState
     {
+        patrolling,
         
+        attack,
+
+        search,
+
     }
 
-    // Update is called once per frame
-    void Update()
+    private EnemyState _currentState;
+
+    private NavMeshAgent _enemyAgent;
+
+    
+
+    [SerializeField] private [] patrolPoints;
+
+    void Awake()
     {
-        
+        _currentState = GetComponent<EnemyState>();
+        _enemyAgent = GetComponent<NavMeshAgent>();
     }
+    
+    
+
+
+    
+
+    
+
 }
